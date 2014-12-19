@@ -9,16 +9,20 @@ Dir.glob("*/*.txt") do |text_file|
   poet = text[1].chomp
   # p poet
 
-  lines = text.count - 3
-  p lines
+  line_count = text.reject {|i| i == "\n" }.count - 2
+  # p line_count
+
+  verse_count = text.count("\n")
+  # p verse_count
 
   poem_hash= {
     poet => {
       title=>{
-        # "#{lines}"
+        verses: verse_count,
+        lines: line_count
 
       },
     },
   }
-  # p poem_hash
+   p poem_hash
 end
